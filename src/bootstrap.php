@@ -8,7 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
     dirname(__DIR__)
 ))->bootstrap();
 
-date_default_timezone_set(env('APP_TIMEZONE', 'GMT'));
+date_default_timezone_set(env('APP_TIMEZONE', 'Asia/Makassar'));
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +20,6 @@ date_default_timezone_set(env('APP_TIMEZONE', 'GMT'));
 | application as an "IoC" container and router for this framework.
 |
 */
-
-//$app = new Laravel\Lumen\Application(
-//    dirname(__DIR__)
-//);
 
 $app = new ApplicationCore(
     dirname(__DIR__)
