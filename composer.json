@@ -1,0 +1,58 @@
+{
+    "name": "aasumitro/dms-starter-kit",
+    "description": "Stand Alone Database Migration Schema for Web Artisan",
+    "type": "project",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/",
+        "source": "https://github.com/"
+    },
+    "authors": [
+        {
+            "name": "A. A. Sumitro",
+            "email": "hello@aasumitro.id"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/config": "^8.65",
+        "illuminate/console": "^8.65",
+        "illuminate/container": "^8.65",
+        "illuminate/contracts": "^8.65",
+        "illuminate/events": "^8.65",
+        "illuminate/filesystem": "^8.65",
+        "illuminate/database": "^8.65",
+        "illuminate/support": "^8.65",
+        "symfony/console": "^5.1",
+        "symfony/error-handler": "^5.1",
+        "symfony/var-dumper": "^5.1",
+        "vlucas/phpdotenv": "^5.2"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.2",
+        "phpunit/phpunit": "^9.5.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Console\\": "src/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    }
+}
