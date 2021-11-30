@@ -2,7 +2,7 @@
 
 namespace Console\Commands;
 
-use Console\Core\BaseGeneratorCommand;
+use Console\Base\BaseGeneratorCommand;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -27,7 +27,7 @@ class ConsoleMakeCommand extends BaseGeneratorCommand
      *
      * @var string
      */
-    protected $type = 'Console command';
+    protected string $type = 'Console command';
 
     /**
      * Replace the class name for the given stub.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Console\Core\Bootstrap;
+namespace Console\Bootstrap;
 
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidFileException;

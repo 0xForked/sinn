@@ -5,7 +5,7 @@ namespace Console;
 use Console\Commands\ConsoleMakeCommand;
 use Console\Commands\DatabaseMakeCommand;
 use Console\Commands\FactoryMakeCommand;
-use Console\Core\Kernel;
+use Console\Base\Kernel;
 
 class Command extends Kernel
 {
@@ -16,7 +16,7 @@ class Command extends Kernel
      */
     protected array $commands = [
         ConsoleMakeCommand::class,
+        FactoryMakeCommand::class,
         DatabaseMakeCommand::class,
-        FactoryMakeCommand::class
     ];
 }

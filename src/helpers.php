@@ -6,7 +6,7 @@ if (! function_exists('app')) {
      *
      * @param string|null $make
      * @param array $parameters
-     * @return mixed|\Console\Core\Application
+     * @return mixed|\Console\Base\Application
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     function app(string $make = null, array $parameters = [])
