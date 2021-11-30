@@ -1,4 +1,4 @@
-# Stand Alone Database Migration Schema Builder 
+# Database Migration Schema Builder 
 
 ##### Requirement
 - [composer](https://getcomposer.org/)
