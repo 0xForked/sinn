@@ -1,6 +1,6 @@
 <?php
 
-namespace Console\Core;
+namespace Console\Base;
 
 use Illuminate\Database\Console\Migrations\MigrateCommand;
 use Illuminate\Support\ServiceProvider;

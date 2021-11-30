@@ -1,6 +1,6 @@
 <?php
 
-namespace Console\Core;
+namespace Console\Base;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -15,14 +15,14 @@ abstract class BaseGeneratorCommand extends Command
      *
      * @var Filesystem
      */
-    protected $files;
+    protected Filesystem $files;
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type;
+    protected string $type;
 
     /**
      * Create a new controller creator command instance.
@@ -83,7 +83,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $name
      * @return string
      */
-    protected function qualifyClass($name)
+    protected function qualifyClass(string $name): string
     {
         $name = ltrim($name, '\\/');
 
@@ -106,7 +106,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $rootNamespace
      * @return string
      */
-    protected function getDefaultNamespace($rootNamespace)
+    protected function getDefaultNamespace(string $rootNamespace): string
     {
         return $rootNamespace;
     }
@@ -117,7 +117,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $rawName
      * @return bool
      */
-    protected function alreadyExists($rawName)
+    protected function alreadyExists(string $rawName): bool
     {
         return $this->files->exists($this->getPath($this->qualifyClass($rawName)));
     }
@@ -128,7 +128,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $name
      * @return string
      */
-    protected function getPath($name)
+    protected function getPath(string $name): string
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
 
@@ -141,7 +141,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $path
      * @return string
      */
-    protected function makeDirectory($path)
+    protected function makeDirectory(string $path): string
     {
         if (! $this->files->isDirectory(dirname($path))) {
             $this->files->makeDirectory(dirname($path), 0777, true, true);
@@ -157,7 +157,7 @@ abstract class BaseGeneratorCommand extends Command
      * @return string
      * @throws FileNotFoundException
      */
-    protected function buildClass($name)
+    protected function buildClass(string $name): string
     {
         $stub = $this->files->get($this->getStub());
 
@@ -171,11 +171,11 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $name
      * @return $this
      */
-    protected function replaceNamespace(&$stub, $name)
+    protected function replaceNamespace(string &$stub, string $name): static
     {
         $stub = str_replace(
             ['DummyNamespace', 'DummyRootNamespace', 'NamespacedDummyUserModel'],
-            [$this->getNamespace($name), $this->rootNamespace(), $this->userProviderModel()],
+            [$this->getNamespace($name), $this->rootNamespace()],
             $stub
         );
 
@@ -188,7 +188,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $name
      * @return string
      */
-    protected function getNamespace($name)
+    protected function getNamespace(string $name): string
     {
         return trim(implode('\\', array_slice(explode('\\', $name), 0, -1)), '\\');
     }
@@ -200,7 +200,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $name
      * @return string
      */
-    protected function replaceClass($stub, $name)
+    protected function replaceClass(string $stub, string $name): string
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
 
@@ -213,7 +213,7 @@ abstract class BaseGeneratorCommand extends Command
      * @param  string  $stub
      * @return string
      */
-    protected function sortImports($stub)
+    protected function sortImports(string $stub): string
     {
         if (preg_match('/(?P<imports>(?:use [^;]+;$\n?)+)/m', $stub, $match)) {
             $imports = explode("\n", trim($match['imports']));
@@ -231,7 +231,7 @@ abstract class BaseGeneratorCommand extends Command
      *
      * @return string
      */
-    protected function getNameInput()
+    protected function getNameInput(): string
     {
         return trim($this->argument('name'));
     }
@@ -241,23 +241,9 @@ abstract class BaseGeneratorCommand extends Command
      *
      * @return string
      */
-    protected function rootNamespace()
+    protected function rootNamespace(): string
     {
         return $this->laravel->getNamespace();
-    }
-
-    /**
-     * Get the model for the default guard's user provider.
-     *
-     * @return string|null
-     */
-    protected function userProviderModel()
-    {
-        $guard = config('auth.defaults.guard');
-
-        $provider = config("auth.guards.{$guard}.provider");
-
-        return config("auth.providers.{$provider}.model");
     }
 
     /**
@@ -265,7 +251,7 @@ abstract class BaseGeneratorCommand extends Command
      *
      * @return array
      */
-    protected function getArguments()
+    protected function getArguments(): array
     {
         return [
             ['name', InputArgument::REQUIRED, 'The name of the class'],

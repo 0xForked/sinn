@@ -1,6 +1,6 @@
 <?php
 
-namespace Console\Core;
+namespace Console\Base;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Symfony\Component\Console\Application as ConsoleApplication;
@@ -17,7 +17,7 @@ class Kernel implements KernelContract
     /**
      * The Artisan application instance.
      *
-     * @var \Illuminate\Console\Application
+     * @var Artisan
      */
     protected $artisan;
 

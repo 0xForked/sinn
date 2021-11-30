@@ -1,9 +1,9 @@
 <?php
 
-namespace Console\Core;
+namespace Console\Base;
 
 use Illuminate\Config\Repository as ConfigRepository;
-use Console\Core\Traits\Path;
+use Console\Base\Traits\Path;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\BindingResolutionException;

@@ -2,7 +2,8 @@
 
 namespace Console\Commands;
 
-use Console\Core\BaseGeneratorCommand;
+use Console\Base\BaseGeneratorCommand;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Symfony\Component\Console\Input\InputOption;
 
 class FactoryMakeCommand extends BaseGeneratorCommand
@@ -26,7 +27,7 @@ class FactoryMakeCommand extends BaseGeneratorCommand
      *
      * @var string
      */
-    protected $type = 'Factory';
+    protected string $type = 'Factory';
 
     /**
      * Get the stub file for the generator.
@@ -41,10 +42,11 @@ class FactoryMakeCommand extends BaseGeneratorCommand
     /**
      * Build the class with the given name.
      *
-     * @param  string  $name
+     * @param string $name
      * @return string
+     * @throws FileNotFoundException
      */
-    protected function buildClass($name)
+    protected function buildClass($name): string
     {
         $namespaceModel = $this->option('model')
             ? $this->qualifyClass($this->option('model'))
@@ -71,13 +73,13 @@ class FactoryMakeCommand extends BaseGeneratorCommand
      * @param  string  $name
      * @return string
      */
-    protected function getPath($name)
+    protected function getPath($name): string
     {
         $name = str_replace(
             ['\\', '/'], '', $this->argument('name')
         );
 
-        return $this->laravel->databasePath()."/factories/{$name}.php";
+        return $this->laravel->databasePath()."/factories/$name.php";
     }
 
     /**
@@ -85,7 +87,7 @@ class FactoryMakeCommand extends BaseGeneratorCommand
      *
      * @return array
      */
-    protected function getOptions()
+    protected function getOptions(): array
     {
         return [
             ['model', 'm', InputOption::VALUE_OPTIONAL, 'The name of the model'],

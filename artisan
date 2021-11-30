@@ -1,9 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
-
 require_once __DIR__ . '/vendor/autoload.php';
 
 /*
@@ -17,14 +14,14 @@ require_once __DIR__ . '/vendor/autoload.php';
 |
 */
 
-(new Console\Core\Bootstrap\LoadEnvironmentVariables(
+(new Console\Bootstrap\LoadEnvironmentVariables(
     __DIR__,
     env('APP_NAME', 'Migration Console')
 ))->bootstrap();
 
 date_default_timezone_set(env('APP_TIMEZONE', 'Asia/Makassar'));
 
-$app = new Console\Core\Application(__DIR__);
+$app = new Console\Base\Application(__DIR__);
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
@@ -44,4 +41,7 @@ $app->singleton(
 
 $kernel = $app->make('Illuminate\Contracts\Console\Kernel');
 
-exit($kernel->handle(new ArgvInput, new ConsoleOutput));
+exit($kernel->handle(
+        new Symfony\Component\Console\Input\ArgvInput,
+        new Symfony\Component\Console\Output\ConsoleOutput
+));

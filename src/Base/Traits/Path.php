@@ -1,11 +1,11 @@
 <?php
 
-namespace Console\Core\Traits;
+namespace Console\Base\Traits;
 
 trait Path
 {
     /**
-         * Get the path to the application "app" directory.
+     * Get the path to the application "app" directory.
      *
      * @return string
      */
