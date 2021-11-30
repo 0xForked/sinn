@@ -3,7 +3,7 @@
 namespace Console\Base;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Symfony\Component\Console\Application as ConsoleApplication;
+use Symfony\Component\Console\Application as SymfonyConsoleApplication;
 use Illuminate\Console\Application as Artisan;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Throwable;
 
-class Kernel implements KernelContract
+class BaseConsoleKernel implements KernelContract
 {
     /**
      * The Artisan application instance.
@@ -161,7 +161,7 @@ class Kernel implements KernelContract
             return $this->artisan = (new Artisan(
                 $this->app,
                 $this->app->make('events'),
-                config('app.version', 'v1.0.0')
+                'v(^8.x) dms-starter-kit v(1.0.1)'
             ))->resolveCommands($this->getCommands());
         }
 
@@ -189,7 +189,7 @@ class Kernel implements KernelContract
      */
     protected function renderException(OutputInterface $output, Throwable $e)
     {
-        (new ConsoleApplication)->renderThrowable($e, $output);
+        (new SymfonyConsoleApplication)->renderThrowable($e, $output);
     }
 
 }

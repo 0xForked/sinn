@@ -2,9 +2,8 @@
 
 namespace Console\Base;
 
-use Illuminate\Database\Console\Migrations\MigrateCommand;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Console\DumpCommand;
+use Illuminate\Database\Console\Migrations\MigrateCommand;
 use Illuminate\Database\Console\Migrations\FreshCommand as MigrateFreshCommand;
 use Illuminate\Database\Console\Migrations\InstallCommand as MigrateInstallCommand;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
@@ -15,6 +14,7 @@ use Illuminate\Database\Console\Migrations\StatusCommand as MigrateStatusCommand
 use Illuminate\Database\Console\Seeds\SeedCommand;
 use Illuminate\Database\Console\Seeds\SeederMakeCommand;
 use Illuminate\Database\Console\WipeCommand;
+use Illuminate\Support\ServiceProvider;
 
 class ConsoleServiceProvider extends ServiceProvider
 {

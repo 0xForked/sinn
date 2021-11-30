@@ -49,6 +49,7 @@ abstract class BaseGeneratorCommand extends Command
      *
      * @return bool|null
      * @throws FileNotFoundException
+     * @noinspection PhpMissingReturnTypeInspection
      */
     public function handle()
     {

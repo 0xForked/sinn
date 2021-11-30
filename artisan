@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
-| Create The Application
+| Create The Console Application
 |--------------------------------------------------------------------------
 |
 | First we need to get an application instance. This creates an instance
@@ -30,7 +30,7 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
-| Run The Artisan Application
+| Run The Artisan ConsoleApplication
 |--------------------------------------------------------------------------
 |
 | When we run the console application, the current CLI command will be

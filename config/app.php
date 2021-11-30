@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Application Version
+    | ConsoleApplication Version
     |--------------------------------------------------------------------------
     |
     | This value is the version of your application. This value is used when the
@@ -16,7 +16,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | ConsoleApplication Name
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -29,7 +29,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | ConsoleApplication Timezone
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default timezone for your application, which

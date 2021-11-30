@@ -6,10 +6,10 @@ if (! function_exists('app')) {
      *
      * @param string|null $make
      * @param array $parameters
-     * @return mixed|\Console\Base\Application
+     * @return mixed|\Console\Base\ConsoleApplication
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    function app(string $make = null, array $parameters = [])
+    function app(string $make = null, array $parameters = []): mixed
     {
         if (is_null($make)) {
             return Illuminate\Container\Container::getInstance();
@@ -25,6 +25,7 @@ if (! function_exists('base_path')) {
      *
      * @param string $path
      * @return string
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     function base_path(string $path = ''): string
     {
@@ -41,6 +42,8 @@ if (! function_exists('config')) {
      * @param array|string|null $key
      * @param mixed|null $default
      * @return mixed
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \Psr\Container\ContainerExceptionInterface
      */
     function config(array|string $key = null, mixed $default = null): mixed
     {
@@ -62,6 +65,7 @@ if (! function_exists('database_path')) {
      *
      * @param string $path
      * @return string
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
     function database_path(string $path = ''): string
     {

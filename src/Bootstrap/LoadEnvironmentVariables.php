@@ -5,7 +5,6 @@ namespace Console\Bootstrap;
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidFileException;
 use Illuminate\Support\Env;
-use JetBrains\PhpStorm\NoReturn;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class LoadEnvironmentVariables
@@ -60,8 +59,9 @@ class LoadEnvironmentVariables
      *
      * @param  string[]  $errors
      * @return void
+     * @noinspection PhpNoReturnAttributeCanBeAddedInspection
      */
-    #[NoReturn] protected function writeErrorAndDie(array $errors)
+    protected function writeErrorAndDie(array $errors)
     {
         $output = (new ConsoleOutput)->getErrorOutput();
 

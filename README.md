@@ -1,4 +1,4 @@
-# Stand Alone Database Migration Schema Builder 
+# Database Migration Schema Builder
 
 ##### Requirement
 - [composer](https://getcomposer.org/)
@@ -53,11 +53,11 @@
     
     `src\Command.php`
     
-    do update variable: 
+    do update: 
     ```php
     protected array $commands = [];
     ```
-   add NewCommandName class at $command variable:
+   add NewCommandName to $command:
     ```php
     protected array $commands = [
         Console\Commands\NewCommandName::class

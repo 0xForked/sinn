@@ -1,11 +1,11 @@
 {
     "name": "aasumitro/dms-starter-kit",
-    "description": "Stand Alone Database Migration Schema for Web Artisan",
+    "description": "Database Migration Schema for Web Artisan",
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/",
-        "source": "https://github.com/"
+        "issues": "https://github.com/aasumitro/dms-starter-kit",
+        "source": "https://github.com/aasumitro/dms-starter-kit"
     },
     "authors": [
         {
@@ -23,9 +23,6 @@
         "illuminate/filesystem": "^8.65",
         "illuminate/database": "^8.65",
         "illuminate/support": "^8.65",
-        "symfony/console": "^5.1",
-        "symfony/error-handler": "^5.1",
-        "symfony/var-dumper": "^5.1",
         "vlucas/phpdotenv": "^5.2"
     },
     "require-dev": {

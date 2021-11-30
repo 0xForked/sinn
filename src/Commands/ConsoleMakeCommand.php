@@ -37,7 +37,7 @@ class ConsoleMakeCommand extends BaseGeneratorCommand
      *
      * @return string
      */
-    protected function replaceClass($stub, $name): string
+    protected function replaceClass(string $stub, string $name): string
     {
         $stub = parent::replaceClass($stub, $name);
 
@@ -61,7 +61,7 @@ class ConsoleMakeCommand extends BaseGeneratorCommand
      *
      * @return string
      */
-    protected function getDefaultNamespace($rootNamespace): string
+    protected function getDefaultNamespace(string $rootNamespace): string
     {
         return '\Console\Commands';
     }

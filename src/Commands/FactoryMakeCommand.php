@@ -46,7 +46,7 @@ class FactoryMakeCommand extends BaseGeneratorCommand
      * @return string
      * @throws FileNotFoundException
      */
-    protected function buildClass($name): string
+    protected function buildClass(string $name): string
     {
         $namespaceModel = $this->option('model')
             ? $this->qualifyClass($this->option('model'))
@@ -73,7 +73,7 @@ class FactoryMakeCommand extends BaseGeneratorCommand
      * @param  string  $name
      * @return string
      */
-    protected function getPath($name): string
+    protected function getPath(string $name): string
     {
         $name = str_replace(
             ['\\', '/'], '', $this->argument('name')

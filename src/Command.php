@@ -3,11 +3,10 @@
 namespace Console;
 
 use Console\Commands\ConsoleMakeCommand;
-use Console\Commands\DatabaseMakeCommand;
 use Console\Commands\FactoryMakeCommand;
-use Console\Base\Kernel;
+use Console\Base\BaseConsoleKernel;
 
-class Command extends Kernel
+class Command extends BaseConsoleKernel
 {
     /**
      * The Artisan commands provided by the application.
@@ -16,7 +15,6 @@ class Command extends Kernel
      */
     protected array $commands = [
         ConsoleMakeCommand::class,
-        FactoryMakeCommand::class,
-        DatabaseMakeCommand::class,
+        FactoryMakeCommand::class
     ];
 }
