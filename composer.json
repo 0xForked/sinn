@@ -1,11 +1,11 @@
 {
-    "name": "aasumitro/dms-starter-kit",
+    "name": "aasumitro/skema-in",
     "description": "Database Migration Schema for Web Artisan",
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/aasumitro/dms-starter-kit",
-        "source": "https://github.com/aasumitro/dms-starter-kit"
+        "issues": "https://github.com/aasumitro/skema-in",
+        "source": "https://github.com/aasumitro/skema-in"
     },
     "authors": [
         {
